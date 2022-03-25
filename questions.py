@@ -13,17 +13,45 @@ class question():
         self.anwserIdx = anwserIdx
 
 
-# questions can be added inline as following shows
-questions = [
-                question(
-                            "What is 2+2",
-                            ["5", "4", "2"],
-                            1
-                        )
-            ]
+# questions can be added inline
+questions = []
 
 # questions can be appended as following shows
-questions.append(question("what is 2+2", ["5", "4", "2"], 1))
+# I will add questions using the following method
+questions.append(question("What region are the Moeraki Boulders located", [
+        "Canterbury",
+        "Otago",
+        "Taranaki",
+        "Wellington"
+        ], 1))
+
+questions.append(question("What city is The Sky Tower located", [
+        "Christchurch",
+        "Wellington",
+        "Auckland",
+        "Dunedin"
+        ], 2))
+
+questions.append(question("What city is The Beehive located", [
+        "Wellington",
+        "Nelson",
+        "Timaru",
+        "Hamilton"
+        ], 0))
+
+questions.append(question("What region is Mount Cook located", [
+        "Southland",
+        "Gisborne",
+        "Northland",
+        "Canterbury"
+        ], 3))
+
+questions.append(question("Where is the Giant Bottle located", [
+        "Paeroa",
+        "Oamaru",
+        "Wanaka",
+        "Akaroa"
+        ], 0))
 
 
 def list():
@@ -63,7 +91,7 @@ def questionRunner(question, questionIdx):
         print("Press enter to try again!")
         input()
         gf.clearScreen()
-        return questionRunner(question)
+        return questionRunner(question, questionIdx)
 
     correct = None
     if anwser.upper() == alphabet[question.anwserIdx]:
