@@ -3,6 +3,14 @@ import questions
 
 
 def welcome():
+    '''
+        This function welcomes the user to the game
+        It should be the first function ran
+
+        This function does not require any parameters
+        This function returns a boolean
+    '''
+
     gf.clearScreen()
     print("Welcome to the game!")
     print("Press enter to continue")
@@ -15,6 +23,14 @@ def welcome():
 
 
 def instructions():
+    '''
+        This function provides instructions for the user
+        This should be the second function ran but not needed
+
+        This function does not require any parameters
+        This function returns null
+    '''
+
     print("This is a quiz game")
     questionsAmount = len(questions.questions)
     print(f"There are {questionsAmount} questions,", end=' ')
@@ -26,6 +42,16 @@ def instructions():
 
 
 def introSeqence():
+    '''
+        This function runs all the functions in correct order
+        It will also handle the returns of the functions
+
+        Use this to make it easier
+
+        This function does not require any parameters
+        This function returns a boolean
+    '''
+
     isContinue = welcome()
     if isContinue:
         instructions()

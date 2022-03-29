@@ -6,4 +6,11 @@ import os
 
 
 def clearScreen():
+    '''
+        This function clears the screen
+
+        This function does not require any parameters
+        This function does not return anything
+    '''
+
     os.system("cls")

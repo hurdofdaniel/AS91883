@@ -2,6 +2,17 @@ import global_functions as gf
 
 
 class question():
+    '''
+        This is the class for questions
+
+        This is a self initialising class,
+            pass in the question string
+            pass in an array of anwser options
+            pass in an int that corresponds to the anwser index
+
+        This class can be expanded in the future to add new feautures
+    '''
+
     question = ""
     options = []
 
@@ -13,11 +24,9 @@ class question():
         self.anwserIdx = anwserIdx
 
 
-# questions can be added inline
 questions = []
 
 # questions can be appended as following shows
-# I will add questions using the following method
 questions.append(question("What region are the Moeraki Boulders located", [
         "Canterbury",
         "Otago",
@@ -55,6 +64,15 @@ questions.append(question("Where is the Giant Bottle located", [
 
 
 def list():
+    '''
+        This function handles running all the questions
+
+        It will store the amount of correct anwsers
+
+        This function does not require any parameters
+        This function will return an int
+    '''
+
     correctAnwsers = 0
     for idx, question in enumerate(questions):
         isCorrect = questionRunner(question, idx)
@@ -69,15 +87,27 @@ alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def questionRunner(question, questionIdx):
+    '''
+        This function asks the questions
+
+        This function requires parameters,
+            the question class instance
+            the question index
+
+        This function returns a boolean
+    '''
+
     print(f"Question {questionIdx + 1}/{len(questions)}")
     print(question.question)
     print("")
     print("Options:")
+
     for idx, option in enumerate(question.options):
         print(f"{alphabet[idx]}: {option}")
 
     print("")
     print("Type the letter that corresponds with the anwser!")
+
     anwser = input()
 
     isValid = anwserValidator(anwser, len(question.options))
@@ -94,6 +124,7 @@ def questionRunner(question, questionIdx):
         return questionRunner(question, questionIdx)
 
     correct = None
+
     if anwser.upper() == alphabet[question.anwserIdx]:
         print("Correct")
         correct = True
@@ -105,11 +136,22 @@ def questionRunner(question, questionIdx):
         print(f"The anwser was {alphabet[question.anwserIdx]}")
         print("Press enter to continue")
         input()
+
     gf.clearScreen()
     return correct
 
 
 def anwserValidator(anwserKey, optionsAmount):
+    '''
+        This function checks if the input is valid
+
+        This function requires parameters,
+            the input
+            the amount of possible anwsers
+
+        This function will return either a string or a boolean
+    '''
+
     if anwserKey.upper() not in alphabet[0:optionsAmount]:
         return False
     else:
