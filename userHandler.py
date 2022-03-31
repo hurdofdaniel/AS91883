@@ -52,21 +52,18 @@ def leaderboard():
     print("+")
 
 
-def checkUser(name):
+def addLeaderboard(user, correctAmount):
     '''
-        This function checks if everything is valid
+        This function adds the score to the user
+        This function is basic but it is for safety
 
-        This function requires a parameter, the name of the user
-        This function will return either null or an instance of user
+        This function should not be called from this file
+
+        This function requires parameters, the user instance and the score
+        This function does not return anything
     '''
 
-    for user in users:
-        if user.userName == name:
-            return user
-    if checkName(name) is False:
-        return None
-    else:
-        return addUser(name)
+    user.setCorrect(correctAmount)
 
 
 def addUser(name):
@@ -97,6 +94,23 @@ def checkName(name):
     return name
 
 
+def checkUser(name):
+    '''
+        This function checks if everything is valid
+
+        This function requires a parameter, the name of the user
+        This function will return either null or an instance of user
+    '''
+
+    for user in users:
+        if user.userName == name:
+            return user
+    if checkName(name) is False:
+        return None
+    else:
+        return addUser(name)
+
+
 def prepareUser():
     '''
         This function asks user for the name and validates it
@@ -106,7 +120,7 @@ def prepareUser():
     '''
 
     print("What do you want me to call you?")
-    print("(I'll use this the leaderboard)")
+    print("(I'll use this on the leaderboard)")
 
     name = input()
 
@@ -122,20 +136,6 @@ def prepareUser():
         return prepareUser()
     else:
         return newUser
-
-
-def addLeaderboard(user, correctAmount):
-    '''
-        This function adds the score to the user
-        This function is basic but it is for safety
-
-        This function should not be called from this file
-
-        This function requires parameters, the user instance and the score
-        This function does not return anything
-    '''
-
-    user.setCorrect(correctAmount)
 
 
 def printStats(user):

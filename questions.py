@@ -62,28 +62,25 @@ questions.append(question("Where is the Giant Bottle located", [
         "Akaroa"
         ], 0))
 
-
-def list():
-    '''
-        This function handles running all the questions
-
-        It will store the amount of correct anwsers
-
-        This function does not require any parameters
-        This function will return an int
-    '''
-
-    correctAnwsers = 0
-    for idx, question in enumerate(questions):
-        isCorrect = questionRunner(question, idx)
-
-        if isCorrect:
-            correctAnwsers += 1
-    return correctAnwsers
-
-
 # the following string is used to make the questions tidier
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+def anwserValidator(anwserKey, optionsAmount):
+    '''
+        This function checks if the input is valid
+
+        This function requires parameters,
+            the input
+            the amount of possible anwsers
+
+        This function will return either a string or a boolean
+    '''
+
+    if anwserKey.upper() not in alphabet[0:optionsAmount] or anwserKey == "":
+        return False
+    else:
+        return anwserKey
 
 
 def questionRunner(question, questionIdx):
@@ -141,18 +138,20 @@ def questionRunner(question, questionIdx):
     return correct
 
 
-def anwserValidator(anwserKey, optionsAmount):
+def list():
     '''
-        This function checks if the input is valid
+        This function handles running all the questions
 
-        This function requires parameters,
-            the input
-            the amount of possible anwsers
+        It will store the amount of correct anwsers
 
-        This function will return either a string or a boolean
+        This function does not require any parameters
+        This function will return an int
     '''
 
-    if anwserKey.upper() not in alphabet[0:optionsAmount]:
-        return False
-    else:
-        return anwserKey
+    correctAnwsers = 0
+    for idx, question in enumerate(questions):
+        isCorrect = questionRunner(question, idx)
+
+        if isCorrect:
+            correctAnwsers += 1
+    return correctAnwsers
