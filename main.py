@@ -11,12 +11,12 @@ def run():
         This function does not require any parameters
     '''
     while True:
-        isContinue = intro.introSeqence()
-        if not isContinue:
+        is_continue = intro.introSeqence()
+        if not is_continue:
             break
         user = userHandler.userSeqence()
-        correctAnwsers = questions.list()
-        userHandler.addLeaderboard(user, correctAnwsers)
+        correct_anwsers = questions.list()
+        userHandler.addLeaderboard(user, correct_anwsers)
         userHandler.printStats(user)
 
 
