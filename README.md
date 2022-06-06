@@ -1,4 +1,4 @@
-# AS91883 Assignment
+# Quiz Game Assessment - AS91883
 Written by Daniel Hurd - March 2022
 
 This is a quiz game made at Papanui High School
